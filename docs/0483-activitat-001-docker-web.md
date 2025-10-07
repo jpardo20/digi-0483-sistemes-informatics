@@ -1,17 +1,25 @@
 # Activitat 1: Desplega un servei web amb Docker
 
 ## Objectius
-- Entendre la diferència entre imatge i contenidor.  
-- Executar un servei web real amb Docker.  
-- Practicar la gestió de ports i volums.  
-- Aprendre a utilitzar `docker-compose` per automatitzar serveis.  
+
+- Entendre la diferència entre **imatge** i **contenidor**.  
+
+- Executar un **servei web real** amb **Docker**.  
+
+- Practicar la gestió de **ports** i **volums**.
+
+- Aprendre a utilitzar **`docker-compose`** per automatitzar serveis.  
 
 ---
 
 ## Recordatori de conceptes
+
 - Una **imatge** és una plantilla immutable (p. ex. `nginx:latest`).  
+
 - Un **contenidor** és una instància viva d’aquesta imatge.  
+
 - Els **volums** permeten guardar dades persistents.  
+
 - Els **ports** permeten accedir al servei des de fora del contenidor.  
 
 Esquema de connexió:
@@ -23,12 +31,53 @@ Host (Ubuntu) ──> Docker Engine ──> Contenidor (nginx) ──> Port 8080
 
 ## Part 1 – Llançament d’un servidor web
 
-1. Comprova que Docker funciona:
+1. Comprova que tens **`docker`** instal·lat i funcionant:
+
+   ```bash
+   docker -v
+   ```
+
+1. Comprova que tens **`docker compose`** instal·lat i funcionant:
+
+   ```bash
+   docker compose version
+   ```
+
+1. Comprova si tens algun contenidor corrent:
+
    ```bash
    docker container list
    ```
 
-2. Descarrega la imatge de **nginx**:
+1. Si tens algun contenidor corrent atura'l:
+
+   ```bash
+   docker container stop <container ID>
+   ```
+
+Repeteix aquesta comanda, mentre apareguin contenidors corrent `docker container list`.
+
+1. Comprova si tens algun contenidor aturat:
+
+   ```bash
+   docker container list -a
+   ```
+
+1. Si tens algun contenidor aturat esborra'l:
+
+   ```bash
+   docker container rm <container ID>
+   ```
+
+Repeteix aquesta comanda, mentre apareguin contenidors aturats `docker container list -a`.
+
+1. Comprova si tens la imatge de **nginx** descarregada:
+
+   ```bash
+   docker image nginx
+   ```
+
+1. Descarrega la imatge de **nginx**:
    ```bash
    docker pull nginx
    ```
@@ -39,7 +88,7 @@ Host (Ubuntu) ──> Docker Engine ──> Contenidor (nginx) ──> Port 8080
    ```
 
 4. Comprova el funcionament:  
-   - Obre el navegador del teu equip **(no dins la MV)** i escriu:  
+   - Obre el navegador del teu equip i escriu:  
       `http://192.168.56.101:8080`  
    - Hauries de veure la pàgina per defecte de Nginx.
 
@@ -56,7 +105,7 @@ Host (Ubuntu) ──> Docker Engine ──> Contenidor (nginx) ──> Port 8080
 
 ---
 
-## 🗂️ Part 2 – Afegir contingut personalitzat
+## Part 2 – Afegir contingut personalitzat
 
 1. Crea un directori de treball:
    ```bash
@@ -75,7 +124,7 @@ Host (Ubuntu) ──> Docker Engine ──> Contenidor (nginx) ──> Port 8080
    ```
 
 4. Comprova al navegador:  
-   👉 `http://192.168.56.101:8080`  
+   `http://192.168.56.101:8080`  
    Ara hauries de veure la teva pròpia pàgina.
 
 ---
@@ -105,7 +154,7 @@ Host (Ubuntu) ──> Docker Engine ──> Contenidor (nginx) ──> Port 8080
    ```
 
 4. Obre el navegador:  
-   👉 `http://192.168.56.101:8080`  
+   `http://192.168.56.101:8080`  
 
 5. Atura i elimina els serveis:
    ```bash
@@ -114,7 +163,7 @@ Host (Ubuntu) ──> Docker Engine ──> Contenidor (nginx) ──> Port 8080
 
 ---
 
-## 💡 Part 4 – Mini repte final
+## Part 4 – Mini repte final
 
 **Repte:**  
 Edita el teu `index.html` per incloure:

@@ -4,7 +4,6 @@ site_url: https://jpardo20.github.io/digi-0483-sistemes-informatics/
 
 nav:
   - Inici: index.md
-  - Continguts: continguts.md
   - Activitat 1: 0483-activitat-001-docker-web.md
 
 
