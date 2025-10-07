@@ -1,8 +1,5 @@
-# Apunts del Mòdul XXXX — Nom del mòdul
+# Apunts del Mòdul 0483 - Sistemes informàtics
 
-En aquesta web publicaré els continguts del mòdul **XXXX — Nom del mòdul**.
+En aquesta web publicaré els continguts del mòdul **0483 - Sistemes informàtics**.
 
-Ves a **Continguts** al menú per veure què hi ha publicat.
-
-> [!NOTE]
-> Després del primer *push*, GitHub Actions construirà i publicarà la web (Settings → Pages → “GitHub Actions”).
+Ves a **Activitat 1** del menú per veure l'activitat que heu de fer.

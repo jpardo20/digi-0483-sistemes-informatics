@@ -1,10 +1,12 @@
-site_name: Mòdul XXXX - Nom del mòdul
+site_name: Mòdul 0483 - Sistemes informàtics
 site_description: Publicació progressiva des d'un sol repositori
-site_url: https://ELTEUUSUARI.github.io/NOM-DEL-REPO/
+site_url: https://jpardo20.github.io/digi-0483-sistemes-informatics/
 
 nav:
   - Inici: index.md
   - Continguts: continguts.md
+  - Activitat 1: 0483-activitat-001-docker-web.md
+
 
 theme:
   name: material

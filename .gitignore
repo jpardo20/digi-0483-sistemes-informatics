@@ -10,3 +10,5 @@ site/
 
 # Cache del convertidor
 .publish-cache.json
+README-copy.md
+README-OPERATIU.md
