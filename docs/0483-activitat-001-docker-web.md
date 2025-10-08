@@ -22,10 +22,11 @@
 
 - Els **ports** permeten accedir al servei des de fora del contenidor.  
 
-Esquema de connexió:
-```
-Host (Ubuntu) ──> Docker Engine ──> Contenidor (nginx) ──> Port 8080 ──> Navegador (http://192.168.56.101:8080)
-```
+### Esquema de connexió:
+
+<pre>
+Host (MV Ubuntu) ──> Docker Engine ──> Contenidor (nginx) ──> Port 8080 ──> Navegador (http://192.168.56.101:8080)
+</pre>
 
 ---
 
@@ -82,22 +83,22 @@ Repeteix aquesta comanda, mentre apareguin contenidors aturats `docker container
    docker pull nginx
    ```
 
-3. Executa-la exposant el **port `8080`**:
+1. Executa-la exposant el **port `8080`**:
    ```bash
    docker run -d -p 8080:80 --name web1 nginx
    ```
 
-4. Comprova el funcionament:  
+1. Comprova el funcionament:  
    - Obre el navegador del teu equip i escriu:  
       `http://192.168.56.101:8080`  
    - Hauries de veure la pàgina per defecte de Nginx.
 
-5. Mostra els contenidors actius:
+1. Mostra els contenidors actius:
    ```bash
    docker container list
    ```
 
-6. Atura i elimina el contenidor:
+1. Atura i elimina el contenidor:
    ```bash
    docker stop web1
    docker rm web1
@@ -113,23 +114,34 @@ Repeteix aquesta comanda, mentre apareguin contenidors aturats `docker container
    cd ~/projectes/docker-nginx
    ```
 
-2. Crea una pàgina HTML pròpia:
+1. Crea una pàgina HTML pròpia:
    ```bash
    echo "<h1>Hola, sóc el servidor de <em>$(whoami)</em></h1>" > html/index.html
    ```
 
-3. Executa Nginx amb un volum:
+1. Executa Nginx amb un volum:
    ```bash
    docker run -d -p 8080:80    -v ~/projectes/docker-nginx/html:/usr/share/nginx/html    --name web2 nginx
    ```
 
-4. Comprova al navegador:  
+1. Comprova al navegador:  
    `http://192.168.56.101:8080`  
    Ara hauries de veure la teva pròpia pàgina.
 
+1. Mostra els contenidors actius:
+   ```bash
+   docker container list
+   ```
+
+1. Atura i elimina el contenidor:
+   ```bash
+   docker stop web2
+   docker rm web2
+   ```
+
 ---
 
-## ⚙️ Part 3 – Introducció a docker-compose
+## Part 3 – Introducció a docker-compose
 
 1. Crea el fitxer `docker-compose.yml` dins `~/projectes/docker-nginx`:
    ```yaml
@@ -143,24 +155,33 @@ Repeteix aquesta comanda, mentre apareguin contenidors aturats `docker container
          - ./html:/usr/share/nginx/html
    ```
 
-2. Llença el servei:
+1. Llença el servei:
    ```bash
    docker compose up -d
    ```
 
-3. Comprova el funcionament:
+1. Comprova el funcionament:
    ```bash
    docker ps
    ```
 
-4. Obre el navegador:  
+1. Obre el navegador:  
    `http://192.168.56.101:8080`  
 
-5. Atura i elimina els serveis:
+1. Mostra els contenidors actius:
+   ```bash
+   docker container list
+   ```
+
+1. Atura i elimina els serveis:
    ```bash
    docker compose down
    ```
 
+1. Mostra els contenidors actius:
+   ```bash
+   docker container list
+   ```
 ---
 
 ## Part 4 – Mini repte final
@@ -181,7 +202,7 @@ Prepara l’arxiu per entregar-lo al Classroom o al teu repositori GitHub.
 
 ---
 
-## 🧾 Avaluació
+## Avaluació
 
 | Criteri | Evidència | Pes |
 |:--|:--|:--:|
